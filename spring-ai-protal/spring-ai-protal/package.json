@@ -8,8 +8,7 @@
     "build": "run-p type-check \"build-only {@}\" --",
     "preview": "vite preview",
     "build-only": "vite build",
-    "type-check": "vue-tsc --build",
-    "postinstall": "node scripts/copy-webviewer.js"
+    "type-check": "vue-tsc --build"
   },
   "dependencies": {
     "@heroicons/vue": "^2.2.0",
@@ -17,6 +16,7 @@
     "@vueuse/components": "^12.7.0",
     "@vueuse/core": "^12.7.0",
     "ai-hub": "file:",
+    "axios": "^1.14.0",
     "dompurify": "^3.2.4",
     "fs-extra": "^11.2.0",
     "highlight.js": "^11.11.1",

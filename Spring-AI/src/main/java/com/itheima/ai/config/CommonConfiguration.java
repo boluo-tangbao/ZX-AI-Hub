@@ -2,7 +2,6 @@ package com.itheima.ai.config;
 
 import com.itheima.ai.constants.SystemConstants;
 import com.itheima.ai.model.AlibabaOpenAiChatModel;
-import com.itheima.ai.tools.CourseTools;
 import io.micrometer.observation.ObservationRegistry;
 import org.springframework.ai.autoconfigure.openai.OpenAiChatProperties;
 import org.springframework.ai.autoconfigure.openai.OpenAiConnectionProperties;
@@ -54,8 +53,8 @@ public class CommonConfiguration {
     public ChatClient chatClient(OpenAiChatModel model, ChatMemory chatMemory){
         return ChatClient
                 .builder(model)
-                .defaultOptions(ChatOptions.builder().model("qwen-omni-turbo").build())
-                .defaultSystem("你是一个热心、可爱的智能助手，你的名字叫小团团，请以小团团的语气回答问题。")
+                .defaultOptions(ChatOptions.builder().model("qwen-flash").build())
+                .defaultSystem(SystemConstants.CHAT_SYSTEM_CLIENT)
                 .defaultAdvisors(new SimpleLoggerAdvisor(),
                         new MessageChatMemoryAdvisor(chatMemory))//拦截与AI的对话，将对话保存到内存中，并打印日志
                 .build();
@@ -72,13 +71,12 @@ public class CommonConfiguration {
     }
 
     @Bean
-    public ChatClient serviceChatClient(AlibabaOpenAiChatModel model, ChatMemory chatMemory, CourseTools courseTools){
+    public ChatClient serviceChatClient(AlibabaOpenAiChatModel model, ChatMemory chatMemory){
         return ChatClient
                 .builder(model)
                 .defaultSystem(SystemConstants.SERVICE_SYSTEM_PROMPT)
                 .defaultAdvisors(new SimpleLoggerAdvisor(),
                         new MessageChatMemoryAdvisor(chatMemory))//拦截与AI的对话，将对话保存到内存中，并打印日志
-                .defaultTools(courseTools)
                 .build();
     }
 
@@ -95,8 +93,8 @@ public class CommonConfiguration {
                                         .similarityThreshold(0.6)
                                         .topK(2)
                                         .build()
-                            )
-                        )//拦截与AI的对话，将对话保存到内存中，并打印日志
+                        )
+                )//拦截与AI的对话，将对话保存到内存中，并打印日志
                 .build();
     }
 
@@ -113,8 +111,8 @@ public class CommonConfiguration {
                                         .similarityThreshold(0.6)
                                         .topK(3)
                                         .build()
-                            )
-                        )//拦截与AI的对话，将对话保存到内存中，并打印日志
+                        )
+                )//拦截与AI的对话，将对话保存到内存中，并打印日志
                 .build();
     }
 

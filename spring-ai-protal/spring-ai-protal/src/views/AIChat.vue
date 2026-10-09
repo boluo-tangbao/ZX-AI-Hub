@@ -284,7 +284,8 @@ const sendMessage = async () => {
   selectedFiles.value.forEach(file => {
     formData.append('files', file)
   })
-  
+
+  formData.append('teacherId', teacherId)
   // 添加助手消息占位
   const assistantMessage = {
     role: 'assistant',

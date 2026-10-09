@@ -1,12 +1,12 @@
 <template>
-  <div class="customer-service" :class="{ 'dark': isDark }">
+  <div class="student-service" :class="{ 'dark': isDark }">
     <div class="chat-container">
       <div class="sidebar">
         <div class="history-header">
-          <h2>咨询记录</h2>
+          <h2>你的24小时助教</h2>
           <button class="new-chat" @click="startNewChat">
             <PlusIcon class="icon" />
-            新咨询
+            新问题
           </button>
         </div>
         <div class="history-list">
@@ -18,7 +18,7 @@
             @click="loadChat(chat.id)"
           >
             <ChatBubbleLeftRightIcon class="icon" />
-            <span class="title">{{ chat.title || '新咨询' }}</span>
+            <span class="title">{{ chat.title || '新问题' }}</span>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@
             <ComputerDesktopIcon class="avatar" />
             <div class="info">
               <h3>小智</h3>
-              <p>智学程序员智能客服</p>
+              <p>ECNU智能助教</p>
             </div>
           </div>
         </div>

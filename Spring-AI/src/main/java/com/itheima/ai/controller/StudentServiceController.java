@@ -11,7 +11,7 @@ import reactor.core.publisher.Flux;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/ai")
-public class CustomerServiceController {
+public class StudentServiceController {
 
     private final ChatClient serviceChatClient;
 

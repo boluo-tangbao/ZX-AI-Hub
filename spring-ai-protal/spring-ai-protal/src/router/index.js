@@ -4,6 +4,11 @@ import GameChat from '../views/GameChat.vue'
 const routes = [
   {
     path: '/',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/home',
     name: 'Home',
     component: () => import('../views/Home.vue')
   },
@@ -18,9 +23,14 @@ const routes = [
     component: () => import('../views/ComfortSimulator.vue')
   },
   {
-    path: '/customer-service',
-    name: 'CustomerService',
-    component: () => import('../views/CustomerService.vue')
+    path: '/student-service',
+    name: 'StudentService',
+    component: () => import('../views/StudentService.vue')
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../views/Login.vue')
   },
   {
     path: '/chat-pdf',

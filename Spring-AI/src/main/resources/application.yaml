@@ -2,19 +2,16 @@ spring:
   application:
     name: Spring-AI
   ai:
-    ollama:
-      base-url: http://localhost:11434
-      chat:
-        model: deepseek-r1:7b
     openai:
-      base-url: https://dashscope.aliyuncs.com/compatible-mode
-      api-key: ${OPENAI_API_KEY}
+      base-url: https://sg.uiuiapi.com
+      api-key: sk-v6HOGpyvHSDjR4Jmddo5S1qyiJvdiwGwwFYRQmvpjzWzvODa
       chat:
+        completions-path: /v1/chat/completions
         options:
-          model: qwen-max-latest
+          model: qwen-flash
       embedding:
         options:
-            model: text-embedding-v3
+            model: text-embedding-3-small
             dimensions: 1024
   servlet:
     multipart:
@@ -22,9 +19,9 @@ spring:
       max-request-size: 10MB
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/itheima?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&allowMultiQueries=true&useServerPrepStmts=false
+    url: jdbc:mysql://localhost:3306/ecnu_edu_1?serverTimezone=Asia/Shanghai&useSSL=false&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&tinyInt1isBit=false&allowPublicKeyRetrieval=true&allowMultiQueries=true&useServerPrepStmts=false
     username: root
-    password: 123456
+    password: 20040102
 logging:
   level:
     org.springframework.ai: debug

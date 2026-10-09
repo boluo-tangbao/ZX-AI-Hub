@@ -3,15 +3,15 @@
     <div class="game-container">
       <!-- 游戏开始界面 -->
       <div v-if="!isGameStarted" class="game-start">
-        <h2>哄哄模拟器</h2>
+        <h2>游戏化教学生成专家</h2>
         <div class="input-area">
           <textarea
             v-model="angerReason"
-            placeholder="请输入女友生气的原因（可选）..."
+            placeholder="请输入你的额外要求哦~"
             rows="3"
           ></textarea>
           <button class="start-button" @click="startGame">
-            开始游戏
+            生成！
           </button>
         </div>
       </div>

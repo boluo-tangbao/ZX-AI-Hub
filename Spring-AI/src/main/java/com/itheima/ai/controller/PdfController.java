@@ -1,5 +1,5 @@
 package com.itheima.ai.controller;
- 
+
 import com.itheima.ai.entity.vo.Result;
 import com.itheima.ai.repository.ChatHistoryRepository;
 import com.itheima.ai.repository.FileRepository;
@@ -25,15 +25,15 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Objects;
- 
+
 @Slf4j
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("/ai/pdf")
 public class PdfController {
- 
+
     private final FileRepository fileRepository;
- 
+
     private final VectorStore vectorStore;
 
     private final ChatClient pdfChatClient;
@@ -81,7 +81,7 @@ public class PdfController {
             return Result.fail("上传文件失败！");
         }
     }
- 
+
     /**
      * 文件下载
      */
@@ -100,7 +100,7 @@ public class PdfController {
                 .header("Content-Disposition", "attachment; filename=\"" + filename + "\"")
                 .body(resource);
     }
- 
+
     private void writeToVectorStore(Resource resource) {
         // 1.创建PDF的读取器
         PagePdfDocumentReader reader = new PagePdfDocumentReader(
@@ -112,17 +112,17 @@ public class PdfController {
         );
         // 2.读取PDF文档，拆分为Document
         List<Document> documents = reader.read();
-        
+
         // 3.为每个文档添加文件名元数据
         String fileName = resource.getFilename();
         for (Document document : documents) {
             document.getMetadata().put("file_name", fileName);
             document.getMetadata().put("source", fileName);
         }
-        
+
         // 4.写入向量库
         vectorStore.add(documents);
-        
+
         log.info("PDF文档已加载到向量库: fileName={}, documentCount={}", fileName, documents.size());
     }
 }

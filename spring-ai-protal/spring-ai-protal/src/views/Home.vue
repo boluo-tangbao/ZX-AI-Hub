@@ -2,7 +2,7 @@
   <div class="home" :class="{ 'dark': isDark }">
     <div class="container">
       <h1 class="title">
-        智学 AI 应用中心
+        ECNU AI游戏化小学语文课前预习智能体
         <div class="title-decoration">
           <div class="floating-cube"></div>
           <div class="floating-sphere"></div>
@@ -53,23 +53,23 @@ const isDark = useDark()
 const aiApps = ref([
   {
     id: 1,
-    title: 'AI 聊天',
-    description: '多模态对话机器人，支持图片、音频等',
+    title: 'AI 教案创造',
+    description: '多模态教案生成，支持图片等',
     route: '/ai-chat',
     icon: ChatBubbleLeftRightIcon
   },
   {
     id: 2,
-    title: '哄哄模拟器',
-    description: '一个帮助你练习哄女朋友开心的小游戏',
+    title: '游戏化教学生成专家',
+    description: '老师提交自己的教案并产生游戏化教学内容',
     route: '/game',
     icon: HeartIcon,
     iconClass: 'heart-icon'
   },
   {
     id: 3,
-    title: '智学智能客服',
-    description: '24小时在线的智能课程咨询师',
+    title: '智能助教（学生版）',
+    description: '一个24小时辅助学生理解本次课程预习内容的优秀助教',
     route: '/customer-service',
     icon: UserGroupIcon
   },
